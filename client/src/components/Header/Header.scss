@@ -4,8 +4,16 @@ header{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
     a{
         text-decoration: none;
         color: inherit;
+    }
+    .logo{
+        font-weight: bold;
+    }
+    nav{
+        display: flex;
+        gap: 20px;
     }
 }

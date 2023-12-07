@@ -1,9 +1,17 @@
-import Header from '../components/Header/Header.js';
+import Header from '../components/Header';
+import Post from '../components/Post';
+import './Home.scss';
 
 function Home() {
   return (
-    <Header />
-    
+    <div>
+        <Header />
+        <main>
+          <Post />
+          <Post />
+          <Post />
+        </main>
+    </div>
   );
 }
 
