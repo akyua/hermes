@@ -1,4 +1,4 @@
-# blog
+# hermes
 
 A blog created with the intention of sharing how programming projects are developed, exploring programming concepts, and discussing relevant topics within the field.
 
