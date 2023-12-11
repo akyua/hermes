@@ -3,10 +3,10 @@ import './Header.scss';
 function Header(){
     return(
         <header>
-            <a href="" className="logo">Hermes</a>
+            <a href="/" className="logo">Hermes</a>
             <nav>
-                <a href="">Login</a>
-                <a href="">Register</a>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
             </nav>
         </header>
     )

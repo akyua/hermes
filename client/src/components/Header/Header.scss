@@ -1,11 +1,21 @@
 header{
     padding: 10px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: center;
     a{
         text-decoration: none;
         color: inherit;
+    }
+    .logo{
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    nav{
+        display: flex;
+        gap: 20px;
     }
 }
