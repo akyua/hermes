@@ -6,7 +6,7 @@ function Header(){
             <a href="/" className="logo">Hermes</a>
             <nav>
                 <a href="/login">Login</a>
-                <a href="">Register</a>
+                <a href="/register">Register</a>
             </nav>
         </header>
     )

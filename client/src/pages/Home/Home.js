@@ -1,5 +1,5 @@
-import Header from '../components/Header';
-import Post from '../components/Post';
+import Header from '../../components/Header';
+import Post from '../../components/Post';
 import './Home.scss';
 
 function Home() {

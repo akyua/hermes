@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+form.login, form.register{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input{
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
