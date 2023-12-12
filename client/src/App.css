@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -37,10 +41,24 @@ input{
   display: block;
   margin-bottom: 5px;
   width: 100%;
-  padding: 5px;
-  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
+}
+
+button{
+  width: 100%;
+  display: block;
+  background-color: #555;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+form{
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
