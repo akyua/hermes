@@ -10,7 +10,11 @@ export default function RegisterComponent(){
             body: JSON.stringify({username, password}),
             headers: {'Content-Type':'application/json'},
         })
-        console.log(response);
+        if(response.status === 200){
+            alert("Registration Successful")
+        } else{
+            alert("Register Failed")
+        }
     }
     return(
         <form className="register" onSubmit={register}>
