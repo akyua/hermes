@@ -11,6 +11,7 @@ A blog created with the intention of sharing how programming projects are develo
 ![React](https://img.shields.io/badge/-React-black?style=for-the-badge&logo=react)
 ![Express](https://img.shields.io/badge/-express-black?style=for-the-badge&logo=express)
 ![Node](https://img.shields.io/badge/-NodeJS-black?style=for-the-badge&logo=node.js)
+![Mongodb](https://img.shields.io/badge/-Mongodb-black?style=for-the-badge&logo=mongodb)
 ![SASS](https://img.shields.io/badge/-SASS-black?style=for-the-badge&logo=sass)
 
 ## Pictures of the Project
