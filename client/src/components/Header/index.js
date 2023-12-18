@@ -14,14 +14,23 @@ function Header(){
             })
         })
     }, []);
+
+    function logout(){
+        fetch('http://localhost:4000/logout',{
+            credentials: 'include',
+            method: 'POST',
+        });
+        setUsername(null);
+    }    
+
     return(
         <header>
             <a href="/" className="logo">Hermes</a>
             <nav>
                 {username && (
                     <>
-                    <Link to='/create'>Create new post</Link>
-                    <a>Logout</a>
+                        <Link to='/create'>Create new post</Link>
+                        <a onClick={logout}>Logout</a>
                     </>
                 )}
                 {!username && (
