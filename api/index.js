@@ -36,9 +36,12 @@ app.post('/login', async (req, res) => {
     const userDoc = await User.findOne({username});
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if(passOk){
-        jwt.sign({username, id: userDoc._id}, secret, {}, (err, token) => {
+        jwt.sign({username, id:userDoc._id}, secret, {}, (err, token) => {
             if(err) throw err;
-            res.cookie('token', token).json('ok');
+            res.cookie('token', token).json({
+                id:userDoc._id,
+                username,
+            });
         });
     } else{
         res.status(400).json('Wrong Credentials')
@@ -47,6 +50,9 @@ app.post('/login', async (req, res) => {
 
 app.get('/profile', (req, res) => {
     const {token} = req.cookies;
+    if(!token){
+        return res.status(401).json('Missing token');
+    }
     jwt.verify(token, secret, {}, (err, info) => {
         if(err) throw err;
         res.json(info);
