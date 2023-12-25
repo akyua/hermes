@@ -1,7 +1,7 @@
 import './Post.scss';
 import {format} from "date-fns";
 
-function Post({title, summary, cover, content, createdAt}){
+function Post({title, summary, cover, content, createdAt, author}){
     return(
         <div className='post'>
             <div className="image">
@@ -10,7 +10,7 @@ function Post({title, summary, cover, content, createdAt}){
             <div className="texts">  
                 <h2>{title}</h2>
                 <p className='info'>
-                    <span className='author'>Gabriel Silveira</span>
+                    <span className='author'>{author.username}</span>
                     <time>{format(new Date(createdAt), 'MMM d, yyyy HH:mm')}</time>
                 </p>
                 <p className='summary'>{summary}</p>

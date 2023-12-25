@@ -74,19 +74,32 @@ app.post('/post', uploadMiddleWare.single('file'), async (req, res) => {
     const newPath = path+'.'+ext;
     fs.renameSync(path, newPath);
 
-    const {title, summary, content} = req.body;
-    const postDoc = await Post.create({
-        title, 
-        summary,
-        content,
-        cover: newPath,
+    const {token} = req.cookies;
+    jwt.verify(token, secret, {}, async(err, info) => {
+        if(err) throw err;
+        const {title, summary, content} = req.body;
+        const postDoc = await Post.create({
+            title, 
+            summary,
+            content,
+            cover: newPath,
+            author: info.id,
+        });
+        res.json(postDoc);
     });
 
-    res.json(postDoc);
+    
+
+    
 })
 
 app.get('/post', async (req, res) => {
-    res.json(await Post.find());
+    res.json(
+        await Post.find()
+            .populate('author', ['username'])
+            .sort({createdAt: -1})
+            .limit(10)
+        );
 })
 
 app.listen(4000);
