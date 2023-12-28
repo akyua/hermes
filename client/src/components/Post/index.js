@@ -5,7 +5,7 @@ function Post({title, summary, cover, content, createdAt, author}){
     return(
         <div className='post'>
             <div className="image">
-                <img src="https://miro.medium.com/v2/resize:fit:1116/1*jsib4jXQbvt-JKglw2an2g.png" alt="" />
+                <img src={'http://localhost:4000/'+cover} alt="image" />
             </div>
             <div className="texts">  
                 <h2>{title}</h2>
