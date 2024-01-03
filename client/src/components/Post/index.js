@@ -1,18 +1,24 @@
 import './Post.scss';
+import {format} from "date-fns"; 
+import {Link} from "react-router-dom";
 
-function Post(){
+function Post({_id, title, summary, cover, content, createdAt, author}){
     return(
         <div className='post'>
             <div className="image">
-                <img src="https://miro.medium.com/v2/resize:fit:1116/1*jsib4jXQbvt-JKglw2an2g.png" alt="" />
+                <Link to={`/post/${_id}`}>
+                    <img src={'http://localhost:4000/'+cover} alt="image" />
+                </Link>
             </div>
             <div className="texts">  
-                <h2>Why You Should Go for ReactJS For Your Next Project.</h2>
+                <Link to={`/post/${_id}`}>
+                    <h2>{title}</h2>
+                </Link>
                 <p className='info'>
-                    <span className='author'>Gabriel Silveira</span>
-                    <time>2023-12-07 16:42</time>
+                    <span className='author'>{author.username}</span>
+                    <time>{format(new Date(createdAt), 'MMM d, yyyy HH:mm')}</time>
                 </p>
-                <p className='summary'>React.js is the most popular front-end framework for Web applications. In this article, we will learn what React.js (or simply React or Reactjs) is and why we should use Reactjs instead of other JavaScript frameworks like Angular.</p>
+                <p className='summary'>{summary}</p>
             </div>
         </div>
     )
