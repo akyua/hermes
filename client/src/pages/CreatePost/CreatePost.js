@@ -55,7 +55,7 @@ export default function CreatePost(){
             <Header />
             <form onSubmit={createNewPost}>
                 <input type="title" placeholder={"title"} value={title} onChange={ev => setTitle(ev.target.value)}/>
-                <input type='summary' placholder={"summary"} value={summary} onChange={ev => setSummary(ev.target.value)}/>
+                <input type="summary" placeholder={"summary"} value={summary} onChange={ev => setSummary(ev.target.value)}/>
                 <input type="file" onChange={ev => setFiles(ev.target.files)}/>
                 <ReactQuill value={content} onChange={newValue => setContent(newValue)} module={modules} formats={formats}/>
                 <button style={{marginTop: '5px'}}>Create Post</button>

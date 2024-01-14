@@ -15,7 +15,7 @@ const uploadMiddleWare = multer({ dest: 'uploads/' });
 const fs =  require('fs');
 
 const salt = bcrypt.genSaltSync(10);
-const secret = 'randaodsmadmaskdsa'
+const secret = 'randaodsmadmaskdsa';
 
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(express.json());
@@ -101,6 +101,12 @@ app.get('/post', async (req, res) => {
             .sort({createdAt: -1})
             .limit(10)
         );
+});
+
+app.get('/post/:id', async(req, res) => {
+    const {id} = req.params;
+    postDoc = await Post.findById(id).populate('author', ['username']);
+    res.json(postDoc);
 })
 
 app.listen(4000);
