@@ -14,10 +14,10 @@ function Home() {
   }, []);
   return (
     <div>
-        <Header />
+        <Header/>
         <main>
           {posts.length > 0 && posts.map(post => (
-            <Post {...post}/>
+            <Post key={post._id} {...post}/>
           ))}
         </main>
     </div>
