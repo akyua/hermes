@@ -88,11 +88,48 @@ app.post('/post', uploadMiddleWare.single('file'), async (req, res) => {
         });
         res.json(postDoc);
     });
+});
 
-    
+app.put('/post', uploadMiddleWare.single('file'), async (req, res) => {
+    let newPath = null;
+    if (req.file) {
+        const { originalname, path } = req.file;
+        const parts = originalname.split('.');
+        const ext = parts[parts.length - 1];
+        newPath = path + '.' + ext;
+        fs.renameSync(path, newPath);
+    }
 
-    
-})
+    const { token } = req.cookies;
+    jwt.verify(token, secret, {}, async (err, info) => {
+        if (err) throw err;
+        const { id, title, summary, content } = req.body;
+        const postDoc = await Post.findById(id);
+        const isAuthor = postDoc.author.equals(info.id);
+
+        if (!isAuthor) {
+            return res.status(400).json('You are not the author');
+        }
+
+        try {
+            await Post.updateOne(
+                { _id: id },
+                {
+                    $set: {
+                        title,
+                        summary,
+                        content,
+                        cover: newPath ? newPath : postDoc.cover,
+                    },
+                }
+            );
+            res.json({ message: 'Post updated successfully' });
+        } catch (error) {
+            console.error('Erro ao atualizar o post:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+});
 
 app.get('/post', async (req, res) => {
     res.json(
