@@ -4,6 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import Editor from "../../Editor";
 
 export default function EditPost(){
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
     const {id} = useParams();
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
@@ -12,7 +13,7 @@ export default function EditPost(){
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(`${apiUrl}/post/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setTitle(postInfo.title);
@@ -33,7 +34,7 @@ export default function EditPost(){
             data.set('file', files?.[0]); 
         }
 
-        const response = await fetch(`http://localhost:4000/post/`, {
+        const response = await fetch(`${apiUrl}/post/`, {
             method: 'PUT',
             body: data,
             credentials: 'include',

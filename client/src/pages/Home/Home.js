@@ -4,9 +4,10 @@ import Post from '../../components/Post';
 import './Home.scss';
 
 function Home() {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/post').then(response => {
+    fetch(`${apiUrl}/post`).then(response => {
       response.json().then(posts => {
         setPosts(posts);
       });

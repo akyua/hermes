@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 
 export default function Login() {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -10,7 +11,7 @@ export default function Login() {
 
     async function login(ev){
         ev.preventDefault();
-        const response = await fetch('http://localhost:4000/login', {
+        const response = await fetch(`${apiUrl}/login`, {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
