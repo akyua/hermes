@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "env": {
+        "REACT_APP_API_URL": "https://hermes-akyua.vercel.app/"
+    }
+}

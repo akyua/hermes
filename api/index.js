@@ -22,7 +22,7 @@ const corsOptions = {
     credentials: true,
   };
 
-app.use(cors({credentials: true, origin: `${corsOptions}`}));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'))
