@@ -17,7 +17,12 @@ const fs =  require('fs');
 const salt = bcrypt.genSaltSync(10);
 const secret = 'randaodsmadmaskdsa';
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+const corsOptions = {
+    origin: ['http://localhost:3000', 'https://hermes-akyua.vercel.app'],
+    credentials: true,
+  };
+
+app.use(cors({credentials: true, origin: `${corsOptions}`}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'))

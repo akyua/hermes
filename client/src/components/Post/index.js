@@ -3,11 +3,12 @@ import {format} from "date-fns";
 import {Link} from "react-router-dom";
 
 function Post({_id, title, summary, cover, content, createdAt, author}){
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
     return(
         <div className='post'>
             <div className="image">
                 <Link to={`/post/${_id}`}>
-                    <img src={'http://localhost:4000/'+cover} alt="image" />
+                    <img src={`${apiUrl}`+cover} alt="image" />
                 </Link>
             </div>
             <div className="texts">  

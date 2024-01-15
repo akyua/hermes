@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 
 function Header(){
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
     const {setUserInfo, userInfo} = useContext(UserContext);
     useEffect(() => {
-        fetch('http://localhost:4000/profile',{
+        fetch(`${apiUrl}/profile`,{
             credentials: 'include'
         }).then(response => {
             response.json().then(userInfo => {
@@ -16,7 +17,7 @@ function Header(){
     }, []);
 
     function logout(){
-        fetch('http://localhost:4000/logout',{
+        fetch(`${apiUrl}/logout`,{
             credentials: 'include',
             method: 'POST',
         });
