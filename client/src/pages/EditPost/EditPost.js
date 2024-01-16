@@ -4,7 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import Editor from "../../Editor";
 
 export default function EditPost(){
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+    const apiUrl = process.env.REACT_APP_API_URL;
     const {id} = useParams();
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');

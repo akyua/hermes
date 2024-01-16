@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 
 function Header(){
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+    const apiUrl = process.env.REACT_APP_API_URL;
     const {setUserInfo, userInfo} = useContext(UserContext);
     useEffect(() => {
         fetch(`${apiUrl}/profile`,{

@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 import Editor from '../../Editor';
 
 export default function CreatePost(){
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
