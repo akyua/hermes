@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 
 export default function Login() {
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
